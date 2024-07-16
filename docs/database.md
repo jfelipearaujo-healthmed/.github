@@ -20,7 +20,7 @@
 | ----------- | ------ | --------------------- |
 | id          | uuid   | Primary Key - User ID |
 | specialty   | string | Specialty             |
-| medical_id  | string | Medical ID            |
+| medical_id  | string | Medical ID (CRM)      |
 | price       | number | Price                 |
 | avg_rating  | number | Average Rating        |
 
