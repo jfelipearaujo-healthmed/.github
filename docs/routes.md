@@ -45,15 +45,15 @@
 | POST   | /appointments                                            | Patient        | Create appointment                         | Must inform the scheduleId and the doctorId         |
 | PUT    | /appointments/{appointmentId}                            | Patient        | Can reschedule the appointment             |                                                     |
 | POST   | /appointments/{appointmentId}/cancel                     | Doctor/Patient | Cancel the appointment                     | Must inform a reason                                |
+| GET   | /appointments/{appointmentId}/feedback                   | Doctor        |     |  |
 | POST   | /appointments/{appointmentId}/feedback                   | Patient        | Give feedback to the appointment           | Must inform a feedback and a rating between 1 and 5 |
+| GET   | /appointments/{appointmentId}/feedback/{feedbackId}                   | Doctor        |     |  |
 | POST   | /appointments/{appointmentId}/files                      | Patient        | Upload files to the appointment            | The files must be in PFD format                     |
-| GET    | /appointments/{appointmentId}/files                      | Patient        | Get files of the appointment               | It will return all files                            |
+| GET    | /appointments/{appointmentId}/files                      | Doctor/Patient        | Get files of the appointment               | It will return all files                            |
 | DELETE | /appointments/{appointmentId}/files/{file}               | Patient        | Delete file of the appointment             | It will delete the file                             |
-| GET    | /appointments/{appointmentId}/files/{file}               | Patient        | Get file of the appointment                | It will return the file                             |
+| GET    | /appointments/{appointmentId}/files/{file}               | Doctor/Patient        | Get file of the appointment                | It will return the file                             |
 | GET    | /appointments/{appointmentId}/files/{file}/access        | Patient        | Get the list of who can access the file    | It will return the list of doctors                  |
 | PUT    | /appointments/{appointmentId}/files/{file}/access        | Patient        | Update the list of who can access the file | It will update the list of doctors                  |
-| GET    | /appointments/{appointmentId}/files                      | Doctor         | Get files of the appointment               | It will return all files                            |
-| GET    | /appointments/{appointmentId}/files/{file}               | Doctor         | Get file of the appointment                | It will return the file                             |
 | GET    | /appointments/{appointmentId}/medical-reports            | Doctor         | Get medical reports of the appointment     | It will return all medical reports                  |
 | GET    | /appointments/{appointmentId}/medical-reports/{reportId} | Doctor         | Get medical report of the appointment      | It will return the medical report with the given id |
 | PUT    | /appointments/{appointmentId}/medical-reports/{reportId} | Doctor         | Update medical report of the appointment   | It will update the medical report with the given id |
