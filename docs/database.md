@@ -61,8 +61,6 @@
 | -------------- | ------ | -------------- |
 | id             | uuid   | Primary Key    |
 | appointment_id | uuid   | Appointment ID |
-| doctor_id      | uuid   | Doctor ID      |
-| patient_id     | uuid   | Patient ID     |
 | rating         | number | Rating         |
 | feedback       | string | Feedback       |
 
