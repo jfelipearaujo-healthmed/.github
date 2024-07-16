@@ -69,7 +69,6 @@
 | Column Name        | Type   | Description        |
 | ------------------ | ------ | ------------------ |
 | id                 | uuid   | Primary Key        |
-| appointment_id     | uuid   | Appointment ID     |
 | file_id            | uuid   | File ID            |
 | file_original_name | string | File Original Name |
 | file_type          | string | File Type          |
@@ -81,6 +80,7 @@
 | Column Name     | Type     | Description     |
 | --------------- | -------- | --------------- |
 | id              | uuid     | Primary Key     |
+| appointment_id  | uuid     | Appointment ID  |
 | file_id         | uuid     | File ID         |
 | doctor_id       | uuid     | Doctor ID       |
 | expiration_date | datetime | Expiration Date |
