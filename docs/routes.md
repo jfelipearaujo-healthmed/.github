@@ -18,8 +18,7 @@
 | GET    | /users/me                    | Doctor/Patient | Get user information    | It will return the user information                      |
 | GET    | /users/me/doctors            | Patient        | Get patient's doctors   | It will return all doctors of the patient                |
 | GET    | /users/me/patients           | Doctor         | Get doctor's patients   | It will return all patients of the doctor                |
-| GET    | /users/me/reviews            | Doctor         | Get reviews             | It will return all received reviews                      |
-| GET    | /users/me/reviews            | Patient        | Get reviews             | It will return all sent reviews                          |
+| GET    | /users/me/reviews            | Doctor/Patient | Get reviews             | It will return all sent/received reviews                 |
 | GET    | /users/me/reviews/{reviewId} | Doctor/Patient | Get review              | It will return the review with the given id              |
 | PUT    | /users/me                    | Doctor/Patient | Update user information | It will update the user information                      |
 | DELETE | /users/me                    | Doctor/Patient | Delete user information | Some information can't be deleted and will be anonymized |

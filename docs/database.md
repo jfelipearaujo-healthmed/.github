@@ -22,7 +22,7 @@
 | specialty   | string | Specialty             |
 | medical_id  | string | Medical ID            |
 | price       | number | Price                 |
-| rating      | number | Rating                |
+| avg_rating  | number | Average Rating        |
 
 ### ScheduleDB
 
@@ -55,6 +55,17 @@
 | cancelled_at        | datetime | Cancelled At        |
 | cancellation_reason | string   | Cancellation Reason |
 
+#### Table `appointment_reviews`
+
+| Column Name    | Type   | Description    |
+| -------------- | ------ | -------------- |
+| id             | uuid   | Primary Key    |
+| appointment_id | uuid   | Appointment ID |
+| doctor_id      | uuid   | Doctor ID      |
+| patient_id     | uuid   | Patient ID     |
+| rating         | number | Rating         |
+| feedback       | string | Feedback       |
+
 #### Table `appointment_files`
 
 | Column Name        | Type   | Description        |
@@ -66,6 +77,15 @@
 | file_type          | string | File Type          |
 | file_size          | number | File Size          |
 | file_url           | string | File URL           |
+
+#### Table `appointment_file_access`
+
+| Column Name     | Type     | Description     |
+| --------------- | -------- | --------------- |
+| id              | uuid     | Primary Key     |
+| file_id         | uuid     | File ID         |
+| doctor_id       | uuid     | Doctor ID       |
+| expiration_date | datetime | Expiration Date |
 
 #### Table `medical_reports`
 
