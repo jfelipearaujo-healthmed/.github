@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e" scale="1" border="10">
     <diagram id="gdUvleXatDT4JzoaOzgu" name="Arquitetura">
-        <mxGraphModel dx="773" dy="596" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="#ffffff" math="0" shadow="0">
+        <mxGraphModel dx="618" dy="477" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="#ffffff" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -8,7 +8,7 @@
                     <mxGeometry x="125" y="90" width="1205" height="870" as="geometry"/>
                 </mxCell>
                 <mxCell id="2" value="Health&amp;amp;Med" style="text;strokeColor=none;fillColor=none;html=1;fontSize=24;fontStyle=1;verticalAlign=middle;align=center;rounded=1;" parent="1" vertex="1">
-                    <mxGeometry x="560" y="20" width="100" height="40" as="geometry"/>
+                    <mxGeometry x="630.42" y="20" width="100" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="h52EhWeXdkFsN7Ld-P_R-56" style="edgeStyle=orthogonalEdgeStyle;curved=1;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;rounded=1;" parent="1" source="h52EhWeXdkFsN7Ld-P_R-12" target="h52EhWeXdkFsN7Ld-P_R-22" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
@@ -98,7 +98,7 @@
                 <mxCell id="h52EhWeXdkFsN7Ld-P_R-48" style="edgeStyle=orthogonalEdgeStyle;curved=1;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.995;exitY=0.63;exitDx=0;exitDy=0;exitPerimeter=0;rounded=1;" parent="1" source="h52EhWeXdkFsN7Ld-P_R-40" target="h52EhWeXdkFsN7Ld-P_R-47" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="h52EhWeXdkFsN7Ld-P_R-50" value="Envia para a fila as&lt;br&gt;solicitacoes de&lt;br&gt;agendamento" style="edgeStyle=orthogonalEdgeStyle;curved=1;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;rounded=1;" parent="1" source="h52EhWeXdkFsN7Ld-P_R-40" target="h52EhWeXdkFsN7Ld-P_R-49" edge="1">
+                <mxCell id="h52EhWeXdkFsN7Ld-P_R-50" value="Send to FIFO queue the&lt;br&gt;appointment requests" style="edgeStyle=orthogonalEdgeStyle;curved=1;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;rounded=1;" parent="1" source="h52EhWeXdkFsN7Ld-P_R-40" target="h52EhWeXdkFsN7Ld-P_R-49" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="h52EhWeXdkFsN7Ld-P_R-73" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.995;entryY=0.63;entryDx=0;entryDy=0;entryPerimeter=0;startArrow=none;startFill=0;exitX=0.995;exitY=0.63;exitDx=0;exitDy=0;exitPerimeter=0;rounded=1;" parent="1" source="h52EhWeXdkFsN7Ld-P_R-40" target="h52EhWeXdkFsN7Ld-P_R-39" edge="1">
@@ -106,6 +106,13 @@
                         <Array as="points">
                             <mxPoint x="930" y="544"/>
                             <mxPoint x="930" y="294"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="4" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.995;exitY=0.63;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="h52EhWeXdkFsN7Ld-P_R-40" target="3">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="979" y="544"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
@@ -121,7 +128,7 @@
                 <mxCell id="h52EhWeXdkFsN7Ld-P_R-49" value="Topic" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;gradientColor=#FF4F8B;gradientDirection=north;fillColor=#BC1356;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.sns;labelBackgroundColor=default;rounded=1;" parent="1" vertex="1">
                     <mxGeometry x="803" y="683" width="78" height="78" as="geometry"/>
                 </mxCell>
-                <mxCell id="h52EhWeXdkFsN7Ld-P_R-63" value="Consome as solicitacoes&lt;br&gt;de agendamento" style="edgeStyle=orthogonalEdgeStyle;curved=1;html=1;entryX=0.005;entryY=0.63;entryDx=0;entryDy=0;entryPerimeter=0;rounded=1;" parent="1" source="h52EhWeXdkFsN7Ld-P_R-53" target="h52EhWeXdkFsN7Ld-P_R-62" edge="1">
+                <mxCell id="h52EhWeXdkFsN7Ld-P_R-63" value="Consume the appointment&lt;br&gt;requests in order" style="edgeStyle=orthogonalEdgeStyle;curved=1;html=1;entryX=0.005;entryY=0.63;entryDx=0;entryDy=0;entryPerimeter=0;rounded=1;" parent="1" source="h52EhWeXdkFsN7Ld-P_R-53" target="h52EhWeXdkFsN7Ld-P_R-62" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="h52EhWeXdkFsN7Ld-P_R-53" value="FIFO Queue" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;gradientColor=#FF4F8B;gradientDirection=north;fillColor=#BC1356;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.sqs;labelBackgroundColor=default;rounded=1;" parent="1" vertex="1">
@@ -169,6 +176,9 @@
                 </mxCell>
                 <mxCell id="h52EhWeXdkFsN7Ld-P_R-67" value="Schedule Data&lt;br&gt;Cache" style="sketch=0;aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/mscae/Cache_Redis_Product.svg;labelBackgroundColor=default;strokeColor=default;spacingTop=7;rounded=1;" parent="1" vertex="1">
                     <mxGeometry x="1200" y="517" width="64.29" height="54" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="Appointment Files" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;gradientColor=#60A337;gradientDirection=north;fillColor=#277116;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.s3;" vertex="1" parent="1">
+                    <mxGeometry x="940" y="683" width="78" height="78" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
