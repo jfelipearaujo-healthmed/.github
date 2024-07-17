@@ -33,7 +33,7 @@
 | id          | uuid    | Primary Key |
 | doctor_id   | uuid    | Doctor ID   |
 | date        | string  | Date        |
-| spots       | string  | Times       |
+| time        | string  | Time        |
 | active      | boolean | Active      |
 
 ### AppointmentDB

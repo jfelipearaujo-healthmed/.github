@@ -25,13 +25,13 @@
 
 ### Schedule Service
 
-| Method | Endpoint                | User Type | Description     | Observation                                                       |
-| ------ | ----------------------- | --------- | --------------- | ----------------------------------------------------------------- |
-| GET    | /schedules              | Doctor    | Get schedules   | It will return all schedules                                      |
-| GET    | /schedules/{scheduleId} | Doctor    | Get schedule    | It will return the schedule with the given id                     |
-| POST   | /schedules              | Doctor    | Create schedule | Must inform a date and times, like "2021-01-01 10:00;11:00;12:00" |
-| PUT    | /schedules/{scheduleId} | Doctor    | Update schedule | If already exists appointments, it will not be updated            |
-| DELETE | /schedules/{scheduleId} | Doctor    | Delete schedule | If already exists appointments, it will not be deleted            |
+| Method | Endpoint                | User Type | Description     | Observation                                            |
+| ------ | ----------------------- | --------- | --------------- | ------------------------------------------------------ |
+| GET    | /schedules              | Doctor    | Get schedules   | It will return all schedules                           |
+| GET    | /schedules/{scheduleId} | Doctor    | Get schedule    | It will return the schedule with the given id          |
+| POST   | /schedules              | Doctor    | Create schedule | Must inform a date and times, like "2021-01-01 10:00"  |
+| PUT    | /schedules/{scheduleId} | Doctor    | Update schedule | If already exists appointments, it will not be updated |
+| DELETE | /schedules/{scheduleId} | Doctor    | Delete schedule | If already exists appointments, it will not be deleted |
 
 ### Appointment Service
 
