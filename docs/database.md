@@ -6,7 +6,7 @@
 
 | Column Name | Type   | Description                   |
 | ----------- | ------ | ----------------------------- |
-| id          | uuid   | Primary Key                   |
+| id          | uint   | Primary Key                   |
 | email       | string | Email                         |
 | password    | string | Password                      |
 | full_name   | string | Full Name                     |
@@ -16,13 +16,26 @@
 
 #### Table `doctors`
 
-| Column Name | Type   | Description           |
-| ----------- | ------ | --------------------- |
-| id          | uuid   | Primary Key - User ID |
-| specialty   | string | Specialty             |
-| medical_id  | string | Medical ID (CRM)      |
-| price       | number | Price                 |
-| avg_rating  | number | Average Rating        |
+| Column Name    | Type   | Description           |
+| -------------- | ------ | --------------------- |
+| id             | uint   | Primary Key - User ID |
+| user_id        | uint   | User ID               |
+| specialty      | string | Specialty             |
+| medical_id     | string | Medical ID (CRM)      |
+| price          | number | Price                 |
+| avg_rating     | number | Average Rating        |
+| total_patients | int    | Total Patients        |
+
+#### Table `reviews`
+
+| Column Name    | Type   | Description    |
+| -------------- | ------ | -------------- |
+| id             | uint   | Primary Key    |
+| appointment_id | uint   | Appointment ID |
+| doctor_id      | uint   | Doctor ID      |
+| patient_id     | uint   | Patient ID     |
+| rating         | number | Rating         |
+| feedback       | string | Feedback       |
 
 ### ScheduleDB
 
@@ -30,8 +43,8 @@
 
 | Column Name | Type    | Description |
 | ----------- | ------- | ----------- |
-| id          | uuid    | Primary Key |
-| doctor_id   | uuid    | Doctor ID   |
+| id          | uint    | Primary Key |
+| doctor_id   | uint    | Doctor ID   |
 | date        | string  | Date        |
 | time        | string  | Time        |
 | active      | boolean | Active      |
@@ -42,53 +55,45 @@
 
 | Column Name         | Type     | Description         |
 | ------------------- | -------- | ------------------- |
-| id                  | uuid     | Primary Key         |
-| schedule_id         | uuid     | Schedule ID         |
-| doctor_id           | uuid     | Doctor ID           |
-| patient_id          | uuid     | Patient ID          |
+| id                  | uint     | Primary Key         |
+| schedule_id         | uint     | Schedule ID         |
+| doctor_id           | uint     | Doctor ID           |
+| patient_id          | uint     | Patient ID          |
 | date                | string   | Date                |
 | spot                | string   | Time                |
 | start_at            | datetime | Start At            |
 | end_at              | datetime | End At              |
 | confirmed_at        | datetime | Confirmed At        |
-| cancelled_by        | uuid     | Cancelled By        |
+| cancelled_by        | uint     | Cancelled By        |
 | cancelled_at        | datetime | Cancelled At        |
 | cancellation_reason | string   | Cancellation Reason |
 
-#### Table `appointment_reviews`
-
-| Column Name    | Type   | Description    |
-| -------------- | ------ | -------------- |
-| id             | uuid   | Primary Key    |
-| appointment_id | uuid   | Appointment ID |
-| rating         | number | Rating         |
-| feedback       | string | Feedback       |
-
-#### Table `appointment_files`
+#### Table `files`
 
 | Column Name        | Type   | Description        |
 | ------------------ | ------ | ------------------ |
-| id                 | uuid   | Primary Key        |
+| id                 | uint   | Primary Key        |
+| patient_id         | uint   | Patient ID         |
 | file_id            | uuid   | File ID            |
 | file_original_name | string | File Original Name |
 | file_type          | string | File Type          |
 | file_size          | number | File Size          |
 | file_url           | string | File URL           |
 
-#### Table `appointment_file_access`
+#### Table `file_access`
 
 | Column Name     | Type     | Description     |
 | --------------- | -------- | --------------- |
-| id              | uuid     | Primary Key     |
-| appointment_id  | uuid     | Appointment ID  |
-| file_id         | uuid     | File ID         |
-| doctor_id       | uuid     | Doctor ID       |
+| id              | uint     | Primary Key     |
+| appointment_id  | uint     | Appointment ID  |
+| file_id         | uint     | File ID         |
+| doctor_id       | uint     | Doctor ID       |
 | expiration_date | datetime | Expiration Date |
 
 #### Table `medical_reports`
 
 | Column Name    | Type   | Description    |
 | -------------- | ------ | -------------- |
-| id             | uuid   | Primary Key    |
-| appointment_id | uuid   | Appointment ID |
+| id             | uint   | Primary Key    |
+| appointment_id | uint   | Appointment ID |
 | report         | string | Report         |
