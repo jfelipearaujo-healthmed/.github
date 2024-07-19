@@ -26,17 +26,6 @@
 | avg_rating     | number | Average Rating        |
 | total_patients | int    | Total Patients        |
 
-#### Table `reviews`
-
-| Column Name    | Type   | Description    |
-| -------------- | ------ | -------------- |
-| id             | uint   | Primary Key    |
-| appointment_id | uint   | Appointment ID |
-| doctor_id      | uint   | Doctor ID      |
-| patient_id     | uint   | Patient ID     |
-| rating         | number | Rating         |
-| feedback       | string | Feedback       |
-
 ### ScheduleDB
 
 #### Table `schedules`
@@ -67,6 +56,15 @@
 | cancelled_by        | uint     | Cancelled By        |
 | cancelled_at        | datetime | Cancelled At        |
 | cancellation_reason | string   | Cancellation Reason |
+
+#### Table `reviews`
+
+| Column Name    | Type   | Description    |
+| -------------- | ------ | -------------- |
+| id             | uint   | Primary Key    |
+| appointment_id | uint   | Appointment ID |
+| rating         | number | Rating         |
+| feedback       | string | Feedback       |
 
 #### Table `files`
 
