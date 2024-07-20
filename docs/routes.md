@@ -21,7 +21,7 @@
 | PUT    | /users/me                    | Doctor/Patient | Update user information | It will update the user information                      |
 | DELETE | /users/me                    | Doctor/Patient | Delete user information | Some information can't be deleted and will be anonymized |
 
-### Schedule Service
+### Scheduler Service
 
 | Method | Endpoint                | User Type | Description     | Observation                                            |
 | ------ | ----------------------- | --------- | --------------- | ------------------------------------------------------ |

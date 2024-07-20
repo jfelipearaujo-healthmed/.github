@@ -30,13 +30,12 @@
 
 #### Table `schedules`
 
-| Column Name | Type    | Description |
-| ----------- | ------- | ----------- |
-| id          | uint    | Primary Key |
-| doctor_id   | uint    | Doctor ID   |
-| date        | string  | Date        |
-| time        | string  | Time        |
-| active      | boolean | Active      |
+| Column Name         | Type     | Description                  |
+| ------------------- | -------- | ---------------------------- |
+| id                  | uint     | Primary Key                  |
+| doctor_id           | uint     | Doctor ID                    |
+| date_time_available | datetime | Date with the available time |
+| active              | boolean  | Active                       |
 
 ### AppointmentDB
 
