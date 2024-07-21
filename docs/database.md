@@ -41,20 +41,20 @@
 
 #### Table `appointments`
 
-| Column Name         | Type     | Description         |
-| ------------------- | -------- | ------------------- |
-| id                  | uint     | Primary Key         |
-| schedule_id         | uint     | Schedule ID         |
-| doctor_id           | uint     | Doctor ID           |
-| patient_id          | uint     | Patient ID          |
-| date                | string   | Date                |
-| spot                | string   | Time                |
-| start_at            | datetime | Start At            |
-| end_at              | datetime | End At              |
-| confirmed_at        | datetime | Confirmed At        |
-| cancelled_by        | uint     | Cancelled By        |
-| cancelled_at        | datetime | Cancelled At        |
-| cancellation_reason | string   | Cancellation Reason |
+| Column Name         | Type     | Description                  |
+| ------------------- | -------- | ---------------------------- |
+| id                  | uint     | Primary Key                  |
+| schedule_id         | uint     | Schedule ID                  |
+| doctor_id           | uint     | Doctor ID                    |
+| patient_id          | uint     | Patient ID                   |
+| date_time           | datetime | Date date chosen by the user |
+| status              | string   | Appointment Status           |
+| start_at            | datetime | Start At                     |
+| end_at              | datetime | End At                       |
+| confirmed_at        | datetime | Confirmed At                 |
+| cancelled_by        | uint     | Cancelled By                 |
+| cancelled_at        | datetime | Cancelled At                 |
+| cancellation_reason | string   | Cancellation Reason          |
 
 #### Table `reviews`
 

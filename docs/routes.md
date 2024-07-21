@@ -13,13 +13,15 @@
 
 ### User Service
 
-| Method | Endpoint                     | User Type      | Description             | Observation                                              |
-| ------ | ---------------------------- | -------------- | ----------------------- | -------------------------------------------------------- |
-| GET    | /users/me                    | Doctor/Patient | Get user information    | It will return the user information                      |
-| GET    | /users/me/reviews            | Doctor/Patient | Get reviews             | It will return all sent/received reviews                 |
-| GET    | /users/me/reviews/{reviewId} | Doctor/Patient | Get review              | It will return the review with the given id              |
-| PUT    | /users/me                    | Doctor/Patient | Update user information | It will update the user information                      |
-| DELETE | /users/me                    | Doctor/Patient | Delete user information | Some information can't be deleted and will be anonymized |
+| Method | Endpoint                     | User Type      | Description                               | Observation                                              |
+| ------ | ---------------------------- | -------------- | ----------------------------------------- | -------------------------------------------------------- |
+| GET    | /users/me                    | Doctor/Patient | Get user information                      | It will return the user information                      |
+| GET    | /users/me/reviews            | Doctor/Patient | Get reviews                               | It will return all sent/received reviews                 |
+| GET    | /users/me/reviews/{reviewId} | Doctor/Patient | Get review                                | It will return the review with the given id              |
+| PUT    | /users/me                    | Doctor/Patient | Update user information                   | It will update the user information                      |
+| DELETE | /users/me                    | Doctor/Patient | Delete user information                   | Some information can't be deleted and will be anonymized |
+| GET    | /doctors                     | Patient        | Get doctors by Medical ID, specialty, etc | It will return all doctors                               |
+| GET    | /doctors/{doctorId}          | Patient        | Get doctor by ID                          | It will return the doctor with the given id              |
 
 ### Scheduler Service
 
@@ -35,10 +37,6 @@
 
 | Method | Endpoint                                                 | User Type      | Description                                | Observation                                         |
 | ------ | -------------------------------------------------------- | -------------- | ------------------------------------------ | --------------------------------------------------- |
-| GET    | /appointments/doctors                                    | Patient        | Get doctors by Medical ID, specialty, etc  | It will return all doctors                          |
-| GET    | /appointments/doctors/{doctorId}                         | Patient        | Get doctor by ID                           | It will return the doctor with the given id         |
-| GET    | /appointments                                            | Doctor/Patient | Get appointments                           | It will return all appointments                     |
-| GET    | /appointments/{appointmentId}                            | Doctor/Patient | Get appointment                            | It will return the appointment with the given id    |
 | PUT    | /appointments/{appointmentId}/confirmation               | Doctor         | Accept or reject the appointment           | Must inform a reason in case of rejection           |
 | POST   | /appointments                                            | Patient        | Create appointment                         | Must inform the scheduleId and the doctorId         |
 | PUT    | /appointments/{appointmentId}                            | Patient        | Can reschedule the appointment             |                                                     |
