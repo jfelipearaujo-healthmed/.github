@@ -13,43 +13,48 @@
 
 ### User Service
 
-| Method | Endpoint                     | User Type      | Description                               | Observation                                              |
-| ------ | ---------------------------- | -------------- | ----------------------------------------- | -------------------------------------------------------- |
-| GET    | /users/me                    | Doctor/Patient | Get user information                      | It will return the user information                      |
-| GET    | /users/me/reviews            | Doctor/Patient | Get reviews                               | It will return all sent/received reviews                 |
-| GET    | /users/me/reviews/{reviewId} | Doctor/Patient | Get review                                | It will return the review with the given id              |
-| PUT    | /users/me                    | Doctor/Patient | Update user information                   | It will update the user information                      |
-| DELETE | /users/me                    | Doctor/Patient | Delete user information                   | Some information can't be deleted and will be anonymized |
-| GET    | /doctors                     | Patient        | Get doctors by Medical ID, specialty, etc | It will return all doctors                               |
-| GET    | /doctors/{doctorId}          | Patient        | Get doctor by ID                          | It will return the doctor with the given id              |
+| Method | Endpoint                    | Description                               | User Role      |
+| ------ | --------------------------- | ----------------------------------------- | -------------- |
+| POST   | `/users`                    | Create a user                             | Doctor/Patient |
+| GET    | `/users/me`                 | Get the current user                      | Doctor/Patient |
+| PUT    | `/users/me`                 | Update a user                             | Doctor/Patient |
+| GET    | `/users/doctors`            | Get doctors by Medical ID, specialty, etc | Patient        |
+| GET    | `/users/doctors/{doctorId}` | Get doctor by ID                          | Patient        |
 
 ### Scheduler Service
 
-| Method | Endpoint                | User Type | Description     | Observation                                            |
-| ------ | ----------------------- | --------- | --------------- | ------------------------------------------------------ |
-| GET    | /schedules              | Doctor    | Get schedules   | It will return all schedules                           |
-| GET    | /schedules/{scheduleId} | Doctor    | Get schedule    | It will return the schedule with the given id          |
-| POST   | /schedules              | Doctor    | Create schedule | Must inform a date and times, like "2021-01-01 10:00"  |
-| PUT    | /schedules/{scheduleId} | Doctor    | Update schedule | If already exists appointments, it will not be updated |
-| DELETE | /schedules/{scheduleId} | Doctor    | Delete schedule | If already exists appointments, it will not be deleted |
+| Method | Endpoint                  | Description                     | User Role |
+| ------ | ------------------------- | ------------------------------- | --------- |
+| GET    | `/schedules`              | It will return all schedules    | Doctor    |
+| GET    | `/schedules/{scheduleId}` | It will return a schedule by id | Doctor    |
+| POST   | `/schedules`              | It will create a schedule       | Doctor    |
+| PUT    | `/schedules/{scheduleId}` | It will update a schedule       | Doctor    |
+| DELETE | `/schedules/{scheduleId}` | It will delete a schedule       | Doctor    |
 
 ### Appointment Service
 
-| Method | Endpoint                                                 | User Type      | Description                                | Observation                                         |
-| ------ | -------------------------------------------------------- | -------------- | ------------------------------------------ | --------------------------------------------------- |
-| PUT    | /appointments/{appointmentId}/confirmation               | Doctor         | Accept or reject the appointment           | Must inform a reason in case of rejection           |
-| POST   | /appointments                                            | Patient        | Create appointment                         | Must inform the scheduleId and the doctorId         |
-| PUT    | /appointments/{appointmentId}                            | Patient        | Can reschedule the appointment             |                                                     |
-| POST   | /appointments/{appointmentId}/cancel                     | Doctor/Patient | Cancel the appointment                     | Must inform a reason                                |
-| GET    | /appointments/{appointmentId}/feedback                   | Doctor         | Get feedbacks of the appointment           | It will return all feedbacks                        |
-| POST   | /appointments/{appointmentId}/feedback                   | Patient        | Give feedback to the appointment           | Must inform a feedback and a rating between 1 and 5 |
-| GET    | /appointments/{appointmentId}/feedback/{feedbackId}      | Doctor         | Get feedback of the appointment            | It will return the feedback with the given id       |
-| POST   | /appointments/{appointmentId}/files                      | Patient        | Upload files to the appointment            | The files must be in PFD format                     |
-| GET    | /appointments/{appointmentId}/files                      | Doctor/Patient | Get files of the appointment               | It will return all files                            |
-| DELETE | /appointments/{appointmentId}/files/{file}               | Patient        | Delete file of the appointment             | It will delete the file                             |
-| GET    | /appointments/{appointmentId}/files/{file}               | Doctor/Patient | Get file of the appointment                | It will return the file                             |
-| GET    | /appointments/{appointmentId}/files/{file}/access        | Patient        | Get the list of who can access the file    | It will return the list of doctors                  |
-| PUT    | /appointments/{appointmentId}/files/{file}/access        | Patient        | Update the list of who can access the file | It will update the list of doctors                  |
-| GET    | /appointments/{appointmentId}/medical-reports            | Doctor         | Get medical reports of the appointment     | It will return all medical reports                  |
-| GET    | /appointments/{appointmentId}/medical-reports/{reportId} | Doctor         | Get medical report of the appointment      | It will return the medical report with the given id |
-| PUT    | /appointments/{appointmentId}/medical-reports/{reportId} | Doctor         | Update medical report of the appointment   | It will update the medical report with the given id |
+| Method | Endpoint                                               | Description                              | User Role      |
+| ------ | ------------------------------------------------------ | ---------------------------------------- | -------------- |
+| POST   | `/appointments`                                        | Create an appointment via event          | Patient        |
+| GET    | `/appointments`                                        | Get all appointments                     | Doctor/Patient |
+| GET    | `/appointments/{appointmentId}`                        | Get an appointment by id                 | Doctor/Patient |
+| PUT    | `/appointments/{appointmentId}`                        | Update an appointment                    | Patient        |
+| POST   | `/appointments/{appointmentId}/confirmation`           | Confirm or decline an appointment        | Doctor         |
+| POST   | `/appointments/{appointmentId}/cancel`                 | Reschedule an appointment                | Doctor/Patient |
+| POST   | `/appointments/{appointmentId}/feedbacks`              | Add feedback to an appointment via event | Patient        |
+| GET    | `/appointments/{appointmentId}/feedbacks`              | Get feedbacks                            | Doctor/Patient |
+| GET    | `/appointments/{appointmentId}/feedbacks/{feedbackId}` | Get feedback by id                       | Doctor/Patient |
+| POST   | `/files`                                               | Update files                             | Patient        |
+| GET    | `/files`                                               | Get all files                            | Patient        |
+| GET    | `/files/{fileId}`                                      | Get a file by id                         | Doctor/Patient |
+| POST   | `/files/{fileId}/access`                               | Create a file access                     | Patient        |
+| GET    | `/files/{fileId}/access`                               | Get all file access                      | Patient        |
+| GET    | `/files/{fileId}/access/{accessId}`                    | Get a file access by id                  | Patient        |
+| PUT    | `/files/{fileId}/access/{accessId}`                    | Update a file access                     | Patient        |
+| DELETE | `/files/{fileId}/access/{accessId}`                    | Delete a file access                     | Patient        |
+| POST   | `/medical-reports`                                     | Create a medical report                  | Doctor         |
+| GET    | `/medical-reports`                                     | Get all medical reports                  | Doctor         |
+| GET    | `/medical-reports/{medicalReportId}`                   | Get a medical report by id               | Doctor         |
+| PUT    | `/medical-reports/{medicalReportId}`                   | Update a medical report                  | Doctor         |
+| DELETE | `/medical-reports/{medicalReportId}`                   | Delete a medical report                  | Doctor         |
+

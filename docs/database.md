@@ -56,6 +56,17 @@
 | cancelled_at        | datetime | Cancelled At                 |
 | cancellation_reason | string   | Cancellation Reason          |
 
+#### Table `events`
+
+| Column Name | Type   | Description                   |
+| ----------- | ------ | ----------------------------- |
+| id          | uint   | Primary Key                   |
+| user_id     | uint   | User ID                       |
+| message_id  | string | Message ID from Topic service |
+| event_type  | string | Event Type                    |
+| data        | string | Event Data in JSON            |
+| outcome     | string | Event Outcome                 |
+
 #### Table `reviews`
 
 | Column Name    | Type   | Description    |
@@ -63,7 +74,7 @@
 | id             | uint   | Primary Key    |
 | appointment_id | uint   | Appointment ID |
 | rating         | number | Rating         |
-| feedback       | string | Feedback       |
+| comment        | string | Comment        |
 
 #### Table `files`
 
