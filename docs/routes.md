@@ -4,8 +4,8 @@
 
 | Method | Endpoint       | Description   | Service         |
 | ------ | -------------- | ------------- | --------------- |
-| POST   | /auth/login    | Login user    | Lambda Login    |
-| POST   | /auth/register | Register user | Lambda Register |
+| POST   | `/auth/login`    | Login user    | Lambda Login    |
+| POST   | `/auth/register` | Register user | Lambda Register |
 
 ### Authorizer for the API Gateway
 
