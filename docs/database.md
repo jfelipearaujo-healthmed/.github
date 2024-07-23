@@ -26,6 +26,19 @@
 | avg_rating     | number | Average Rating        |
 | total_patients | int    | Total Patients        |
 
+#### Table `addresses`
+
+| Column Name  | Type   | Description  |
+| ------------ | ------ | ------------ |
+| id           | uint   | Primary Key  |
+| user_id      | uint   | User ID      |
+| street       | string | Street       |
+| number       | string | Number       |
+| neighborhood | string | Neighborhood |
+| city         | string | City         |
+| state        | string | State        |
+| zip_code     | string | Zip Code     |
+
 ### ScheduleDB
 
 #### Table `schedules`
