@@ -44,17 +44,12 @@
 | POST   | `/appointments/{appointmentId}/feedbacks`                         | Add feedback to an appointment via event | Patient        |
 | GET    | `/appointments/{appointmentId}/feedbacks`                         | Get feedbacks                            | Doctor/Patient |
 | GET    | `/appointments/{appointmentId}/feedbacks/{feedbackId}`            | Get feedback by id                       | Doctor/Patient |
+| GET    | `/appointments/{appointmentId}/files`                             | Get all files attached to an appointment | Doctor         |
 | POST   | `/files`                                                          | Update files                             | Patient        |
 | GET    | `/files`                                                          | Get all files                            | Patient        |
-| GET    | `/files/{fileId}`                                                 | Get a file by id                         | Doctor/Patient |
+| GET    | `/files/{fileId}`                                                 | Get a file by id                         | Patient        |
 | POST   | `/files/{fileId}/access`                                          | Create a file access                     | Patient        |
 | GET    | `/files/{fileId}/access`                                          | Get all file access                      | Patient        |
-| GET    | `/files/{fileId}/access/{accessId}`                               | Get a file access by id                  | Patient        |
-| PUT    | `/files/{fileId}/access/{accessId}`                               | Update a file access                     | Patient        |
-| DELETE | `/files/{fileId}/access/{accessId}`                               | Delete a file access                     | Patient        |
 | POST   | `/appointments/{appointmentId}/medical-reports`                   | Create a medical report                  | Doctor         |
 | GET    | `/appointments/{appointmentId}/medical-reports`                   | Get all medical reports                  | Doctor         |
 | GET    | `/appointments/{appointmentId}/medical-reports/{medicalReportId}` | Get a medical report by id               | Doctor         |
-| PUT    | `/appointments/{appointmentId}/medical-reports/{medicalReportId}` | Update a medical report                  | Doctor         |
-| DELETE | `/appointments/{appointmentId}/medical-reports/{medicalReportId}` | Delete a medical report                  | Doctor         |
-

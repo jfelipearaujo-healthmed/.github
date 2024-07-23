@@ -103,12 +103,14 @@
 
 #### Table `file_access`
 
-| Column Name     | Type     | Description     |
-| --------------- | -------- | --------------- |
-| id              | uint     | Primary Key     |
-| file_id         | uint     | File ID         |
-| doctor_id       | uint     | Doctor ID       |
-| expiration_date | datetime | Expiration Date |
+| Column Name    | Type     | Description     |
+| -------------- | -------- | --------------- |
+| id             | uint     | Primary Key     |
+| user_id        | uint     | User ID         |
+| file_id        | uint     | File ID         |
+| doctor_id      | uint     | Doctor ID       |
+| appointment_id | uint     | Appointment ID  |
+| expires_at     | datetime | Expiration Date |
 
 #### Table `medical_reports`
 
