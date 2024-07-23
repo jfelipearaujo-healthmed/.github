@@ -95,9 +95,9 @@
 | ------------------ | ------ | ------------------ |
 | id                 | uint   | Primary Key        |
 | patient_id         | uint   | Patient ID         |
-| file_id            | uuid   | File ID            |
+| file_name          | string | File Name          |
 | file_original_name | string | File Original Name |
-| file_type          | string | File Type          |
+| file_extension     | string | File Extension     |
 | file_size          | number | File Size          |
 | file_url           | string | File URL           |
 
@@ -106,7 +106,6 @@
 | Column Name     | Type     | Description     |
 | --------------- | -------- | --------------- |
 | id              | uint     | Primary Key     |
-| appointment_id  | uint     | Appointment ID  |
 | file_id         | uint     | File ID         |
 | doctor_id       | uint     | Doctor ID       |
 | expiration_date | datetime | Expiration Date |
