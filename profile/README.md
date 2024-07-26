@@ -11,6 +11,12 @@ This is a project that will help the patients and doctors to manage their appoin
 
 ## Architecture
 
+The following diagram shows the architecture of the project. It is was created with the following requirements in mind:
+
+- High availability: The system should be available 24/7.
+- Scalability: The system should be able to scale horizontally to handle a huge number of users (20k of patiantes at the same time).
+- Security: The system should be secure to guarantee the confidentiality and integrity of the data.
+
 ![architecture](../docs/architecture.png)
 
 ## Technologies
