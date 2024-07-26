@@ -1,25 +1,16 @@
 # Routes
 
-### Authentication
-
-| Method | Endpoint         | Description   | Service         |
-| ------ | ---------------- | ------------- | --------------- |
-| POST   | `/auth/login`    | Login user    | Lambda Login    |
-| POST   | `/auth/register` | Register user | Lambda Register |
-
-### Authorizer for the API Gateway
-
-- Lambda Authorizer will be used to validate JWT token
-
 ### User Service
 
-| Method | Endpoint                    | Description                                             | User Role      |
-| ------ | --------------------------- | ------------------------------------------------------- | -------------- |
-| POST   | `/users`                    | Create a user                                           | Doctor/Patient |
-| GET    | `/users/me`                 | Get the current user                                    | Doctor/Patient |
-| PUT    | `/users/me`                 | Update a user                                           | Doctor/Patient |
-| GET    | `/users/doctors`            | Get doctors by Medical ID, specialty, street, city, etc | Patient        |
-| GET    | `/users/doctors/{doctorId}` | Get doctor by ID                                        | Patient        |
+| Method | Endpoint                            | Description                                            | User Role      |
+| ------ | ----------------------------------- | ------------------------------------------------------ | -------------- |
+| POST   | `/users/login`                      | Login a user                                           | Doctor/Patient |
+| POST   | `/users`                            | Create a user                                          | Doctor/Patient |
+| GET    | `/users/me`                         | Get the current user                                   | Doctor/Patient |
+| PUT    | `/users/me`                         | Update a user                                          | Doctor/Patient |
+| GET    | `/users/doctors`                    | Get doctors by Medical ID, specialty, city, state, etc | Patient        |
+| GET    | `/users/doctors/{doctorId}`         | Get doctor by ID                                       | Patient        |
+| POST   | `/users/doctors/{doctorId}/ratings` | Rate a doctor                                          | Patient        |
 
 ### Scheduler Service
 
@@ -39,8 +30,8 @@
 | GET    | `/appointments`                                                   | Get all appointments                     | Doctor/Patient |
 | GET    | `/appointments/{appointmentId}`                                   | Get an appointment by id                 | Doctor/Patient |
 | PUT    | `/appointments/{appointmentId}`                                   | Update an appointment                    | Patient        |
-| POST   | `/appointments/{appointmentId}/confirmation`                      | Confirm or decline an appointment        | Doctor         |
-| POST   | `/appointments/{appointmentId}/cancel`                            | Reschedule an appointment                | Doctor/Patient |
+| POST   | `/appointments/{appointmentId}/confirm`                           | Confirm or decline an appointment        | Doctor         |
+| POST   | `/appointments/{appointmentId}/cancel`                            | Cancel an appointment                    | Doctor/Patient |
 | POST   | `/appointments/{appointmentId}/feedbacks`                         | Add feedback to an appointment via event | Patient        |
 | GET    | `/appointments/{appointmentId}/feedbacks`                         | Get feedbacks                            | Doctor/Patient |
 | GET    | `/appointments/{appointmentId}/feedbacks/{feedbackId}`            | Get feedback by id                       | Doctor/Patient |
