@@ -89,9 +89,13 @@ It will also allow the following actions:
 
 ### [Appointment Creator Service](https://github.com/jfelipearaujo-healthmed/appointment-creator-service)
 
+- [ ] TODO: Desenhar os fluxos
+
 This service is responsible to handle the creation of appointments and avoid clashes between the possible huge number of users trying to create appointments at the same time for the same doctor. To perform this task, we use a FIFO Topic and a FIFO Queue to centralize the creation of appointments and allow the correct order of the appointments.
 
 ### [Review Processor Service](https://github.com/jfelipearaujo-healthmed/review-processor-service)
+
+- [ ] TODO: Desenhar os fluxos
 
 This service is responsible for the process each review made by each patient and calculate the rating of each doctor. To allow a better way to calculate the rating, we use the Topic and a Queue to centralize the feedbacks and segregate the processing power needed to calculate the rating away from the appointment service.
 
