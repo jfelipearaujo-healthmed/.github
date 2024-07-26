@@ -7,21 +7,21 @@
 
 # Health&Med Org
 
-This is a project that will help the patients and doctors to manage their appointments and medical reports.
+Este é um projeto que ajudará pacientes e médicos a gerenciar suas consultas e relatórios médicos.
 
-## Architecture
+## Arquitetura
 
-The following diagram shows the architecture of the project. It is was created with the following requirements in mind:
+O diagrama a seguir mostra a arquitetura do projeto. Ele foi criado com os seguintes requisitos em mente:
 
-- High availability: The system should be available 24/7.
-- Scalability: The system should be able to scale horizontally to handle a huge number of users (20k of patiantes at the same time).
-- Security: The system should be secure to guarantee the confidentiality and integrity of the data.
+- Alta disponibilidade: O sistema deve estar disponível 24/7.
+- Escalabilidade: O sistema deve ser capaz de escalar horizontalmente para lidar com um grande número de usuários (20k de pacientes ao mesmo tempo).
+- Segurança: O sistema deve ser seguro para garantir a confidencialidade e integridade dos dados.
 
 ![architecture](../docs/architecture.png)
 
-## Technologies
+## Tecnologias
 
-To create this project, we used the major technologies:
+Para criar este projeto, usamos as principais tecnologias:
 
 - [AWS](https://aws.amazon.com/)
 - [Kubernetes](https://kubernetes.io/)
@@ -29,76 +29,75 @@ To create this project, we used the major technologies:
 - [Docker](https://www.docker.com/)
 - [GoLang](https://golang.org/)
 
-## Infrastructure as Code
+## Infraestrutura como Código
 
-This project has the following services:
+Este projeto tem os seguintes serviços:
 
 ### [EKS Cluster IaC](https://github.com/jfelipearaujo-healthmed/eks-cluster-iac)
 
-In this service, we provisioning the EKS cluster and other resources using Terraform.
+Neste serviço, provisionamos o cluster EKS e outros recursos usando o Terraform.
 
 ### [Database IaC](https://github.com/jfelipearaujo-healthmed/database-iac)
 
-In this service, we provisioning the database and other resources using Terraform.
+Neste serviço, provisionamos o banco de dados e outros recursos usando o Terraform.
 
-The databases are:
+Os bancos de dados são:
 
-- UserDB
-- ScheduleDB
-- AppointmentDB
+- UserDB: armazena dados de usuários.
+- ScheduleDB: armazena dados das agendas dos médicos.
+- AppointmentDB: armazena dados das consultas e outros dados relacionados à consulta.
 
-Also, we use a Redis cache to avoid the overload of the database.
+Também usamos um cache Redis para evitar a sobrecarga do banco de dados e acelerar a consulta de algumas informações.
 
-To see the tables, please check [this](../docs/database.md) page.
+Para ver as tabelas, por favor, verifique [esta](../docs/database.md) página.
 
 ### [Queues & Topics IaC](https://github.com/jfelipearaujo-healthmed/queues-topics-iac)
 
-To allow a huge number of users to access the API Gateway, we use the Queues and Topics from AWS to handle the creation of appointments and be able to calculate correctly the rating of each doctor.
+Para permitir que um grande número de usuários acesse o sistema, usamos as Filas e Tópicos da AWS para gerenciar a criação de consultas e poder calcular corretamente a classificação (nota) de cada médico.
 
 ### [API Gateway IaC](https://github.com/jfelipearaujo-healthmed/api-gateway-iac)
 
-To allow the project be able to escale horizontally, we use the API Gateway and a NLB to handle the traffic to an Ingress Controller running on the EKS cluster.
+Para permitir que o projeto seja dimensionado horizontalmente, usamos o API Gateway e um NLB para manipular o tráfego para um Ingress Controller em execução no cluster EKS.
 
-## Microservices
+## Microserviços
 
 ### [User Service](https://github.com/jfelipearaujo-healthmed/user-service)
 
-This service is responsible for the user management, it will create, update, get and delete users.
+Este serviço é responsável pelo gerenciamento de usuários, ele criará, atualizará, obterá e excluirá usuários (pacientes e médicos).
 
-Also, it allow patients to search for doctors by specialty, city, state, etc.
+Além disso, permite que os pacientes pesquisem médicos por especialidade, cidade, estado, etc.
 
 ### [Schedule Service](https://github.com/jfelipearaujo-healthmed/scheduler-service)
 
-This service is responsible for the schedule management, it will create, update, get and delete schedules and will be used entirely by the doctors.
+Este serviço é responsável pelo gerenciamento das agendas dos medicos, ele criará, atualizará, obterá e excluirá agendas.
 
 ### [Appointment Service](https://github.com/jfelipearaujo-healthmed/appointment-service)
 
-This is the main service of the project, it will create, update, get and delete appointments.
+Este é o serviço principal do projeto, ele criará, atualizará, obterá e excluirá as consultas.
 
-It will also allow the following actions:
-- Confirm or decline an appointment
-- Cancel an appointment
-- Add feedback to an appointment
-- Get feedbacks
-- Upload files to an appointment
-- Create a file access
-- Get all files attached to an appointment
-- Create a medical report
-- Get all medical reports
-- Get a medical report by id
+Ele também permitirá as seguintes ações:
+- Confirmar ou recusar uma consulta
+- Cancelar uma consulta
+- Adicionar feedback a uma consulta
+- Obter feedbacks
+- Carregar arquivos para uma consulta
+- Criar um acesso de arquivo
+- Obter os arquivos anexados a uma consulta
+- Criar um relatório médico
+- Obter os relatórios médicos
 
 ### [Appointment Creator Service](https://github.com/jfelipearaujo-healthmed/appointment-creator-service)
 
 - [ ] TODO: Desenhar os fluxos
 
-This service is responsible to handle the creation of appointments and avoid clashes between the possible huge number of users trying to create appointments at the same time for the same doctor. To perform this task, we use a FIFO Topic and a FIFO Queue to centralize the creation of appointments and allow the correct order of the appointments.
+Este serviço é responsável por lidar com a criação de consultas e evitar conflitos entre o possível grande número de usuários tentando criar consultas ao mesmo tempo para o mesmo médico. Para executar esta tarefa, usamos um Tópico FIFO e uma Fila FIFO para centralizar a criação de consultas e permitir a ordem correta das consultas, esses tópicos e filas conseguem entregar para a aplicação na ordem de chegada.
 
 ### [Review Processor Service](https://github.com/jfelipearaujo-healthmed/review-processor-service)
 
 - [ ] TODO: Desenhar os fluxos
 
-This service is responsible for the process each review made by each patient and calculate the rating of each doctor. To allow a better way to calculate the rating, we use the Topic and a Queue to centralize the feedbacks and segregate the processing power needed to calculate the rating away from the appointment service.
+Este serviço é responsável pelo processamento de cada feedback feito por cada paciente e pelo cálculo da classificação de cada médico. Para permitir uma melhor maneira de calcular a classificação, usamos o Tópico e uma Fila para centralizar os feedbacks e segregar o poder de processamento necessário para calcular a classificação longe do serviço de agendamento.
 
-## Routes
+## Rotas
 
-If you want to have a better understanding of the routes, please check [this](../docs/routes.md) page.
+Se você quiser entender melhor as rotas, consulte [esta](../docs/routes.md) página.

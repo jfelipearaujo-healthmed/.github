@@ -1,46 +1,46 @@
-# Routes
+# 🌎 Rotas
 
-### User Service
+### 🖥️ User Service
 
-| Method | Endpoint                            | Description                                            | User Role      |
-| ------ | ----------------------------------- | ------------------------------------------------------ | -------------- |
-| POST   | `/users/login`                      | Login a user                                           | Doctor/Patient |
-| POST   | `/users`                            | Create a user                                          | Doctor/Patient |
-| GET    | `/users/me`                         | Get the current user                                   | Doctor/Patient |
-| PUT    | `/users/me`                         | Update a user                                          | Doctor/Patient |
-| GET    | `/users/doctors`                    | Get doctors by Medical ID, specialty, city, state, etc | Patient        |
-| GET    | `/users/doctors/{doctorId}`         | Get doctor by ID                                       | Patient        |
-| POST   | `/users/doctors/{doctorId}/ratings` | Rate a doctor                                          | Patient        |
+| Método | Rota                                | Descrição                                                | Papel do Usuário |
+| ------ | ----------------------------------- | -------------------------------------------------------- | ---------------- |
+| POST   | `/users/login`                      | Login de um usuário                                      | Médico/Paciente  |
+| POST   | `/users`                            | Cria um usuário                                          | Médico/Paciente  |
+| GET    | `/users/me`                         | Obtém o usuário atual                                    | Médico/Paciente  |
+| PUT    | `/users/me`                         | Atualiza um usuário                                      | Médico/Paciente  |
+| GET    | `/users/doctors`                    | Obtém médicos por ID, especialidade, cidade, estado, etc | Paciente         |
+| GET    | `/users/doctors/{doctorId}`         | Obtém o médico por ID                                    | Paciente         |
+| POST   | `/users/doctors/{doctorId}/ratings` | Avalia um médico                                         | Paciente         |
 
-### Scheduler Service
+### 🖥️ Scheduler Service
 
-| Method | Endpoint                  | Description                     | User Role |
-| ------ | ------------------------- | ------------------------------- | --------- |
-| GET    | `/schedules`              | It will return all schedules    | Doctor    |
-| GET    | `/schedules/{scheduleId}` | It will return a schedule by id | Doctor    |
-| POST   | `/schedules`              | It will create a schedule       | Doctor    |
-| PUT    | `/schedules/{scheduleId}` | It will update a schedule       | Doctor    |
-| DELETE | `/schedules/{scheduleId}` | It will delete a schedule       | Doctor    |
+| Método | Rota                      | Descrição               | Papel do Usuário |
+| ------ | ------------------------- | ----------------------- | ---------------- |
+| GET    | `/schedules`              | Obtém todas as agendas  | Médico           |
+| GET    | `/schedules/{scheduleId}` | Obtém uma agenda por ID | Médico           |
+| POST   | `/schedules`              | Cria uma agenda         | Médico           |
+| PUT    | `/schedules/{scheduleId}` | Atualiza uma agenda     | Médico           |
+| DELETE | `/schedules/{scheduleId}` | Exclui uma agenda       | Médico           |
 
-### Appointment Service
+### 🖥️ Appointment Service
 
-| Method | Endpoint                                                          | Description                              | User Role      |
-| ------ | ----------------------------------------------------------------- | ---------------------------------------- | -------------- |
-| POST   | `/appointments`                                                   | Create an appointment via event          | Patient        |
-| GET    | `/appointments`                                                   | Get all appointments                     | Doctor/Patient |
-| GET    | `/appointments/{appointmentId}`                                   | Get an appointment by id                 | Doctor/Patient |
-| PUT    | `/appointments/{appointmentId}`                                   | Update an appointment                    | Patient        |
-| POST   | `/appointments/{appointmentId}/confirm`                           | Confirm or decline an appointment        | Doctor         |
-| POST   | `/appointments/{appointmentId}/cancel`                            | Cancel an appointment                    | Doctor/Patient |
-| POST   | `/appointments/{appointmentId}/feedbacks`                         | Add feedback to an appointment via event | Patient        |
-| GET    | `/appointments/{appointmentId}/feedbacks`                         | Get feedbacks                            | Doctor/Patient |
-| GET    | `/appointments/{appointmentId}/feedbacks/{feedbackId}`            | Get feedback by id                       | Doctor/Patient |
-| GET    | `/appointments/{appointmentId}/files`                             | Get all files attached to an appointment | Doctor         |
-| POST   | `/files`                                                          | Update files                             | Patient        |
-| GET    | `/files`                                                          | Get all files                            | Patient        |
-| GET    | `/files/{fileId}`                                                 | Get a file by id                         | Patient        |
-| POST   | `/files/{fileId}/access`                                          | Create a file access                     | Patient        |
-| GET    | `/files/{fileId}/access`                                          | Get all file access                      | Patient        |
-| POST   | `/appointments/{appointmentId}/medical-reports`                   | Create a medical report                  | Doctor         |
-| GET    | `/appointments/{appointmentId}/medical-reports`                   | Get all medical reports                  | Doctor         |
-| GET    | `/appointments/{appointmentId}/medical-reports/{medicalReportId}` | Get a medical report by id               | Doctor         |
+| Método | Rota                                                              | Descrição                                       | Papel do Usuário |
+| ------ | ----------------------------------------------------------------- | ----------------------------------------------- | ---------------- |
+| POST   | `/appointments`                                                   | Cria uma consulta via evento                    | Paciente         |
+| GET    | `/appointments`                                                   | Obtém todas as consultas                        | Médico/Paciente  |
+| GET    | `/appointments/{appointmentId}`                                   | Obtém uma consulta por ID                       | Médico/Paciente  |
+| PUT    | `/appointments/{appointmentId}`                                   | Atualiza uma consulta                           | Paciente         |
+| POST   | `/appointments/{appointmentId}/confirm`                           | Confirma ou recusa uma consulta                 | Médico           |
+| POST   | `/appointments/{appointmentId}/cancel`                            | Cancela uma consulta                            | Médico/Paciente  |
+| POST   | `/appointments/{appointmentId}/feedbacks`                         | Adiciona feedback a uma consulta via evento     | Paciente         |
+| GET    | `/appointments/{appointmentId}/feedbacks`                         | Obtém feedbacks                                 | Médico/Paciente  |
+| GET    | `/appointments/{appointmentId}/feedbacks/{feedbackId}`            | Obtém feedback por ID                           | Médico/Paciente  |
+| GET    | `/appointments/{appointmentId}/files`                             | Obtém todos os arquivos anexados a uma consulta | Médico           |
+| POST   | `/files`                                                          | Atualiza arquivos                               | Paciente         |
+| GET    | `/files`                                                          | Obtém todos os arquivos                         | Paciente         |
+| GET    | `/files/{fileId}`                                                 | Obtém um arquivo por ID                         | Paciente         |
+| POST   | `/files/{fileId}/access`                                          | Cria um acesso de arquivo                       | Paciente         |
+| GET    | `/files/{fileId}/access`                                          | Obtém todos os acessos de arquivo               | Paciente         |
+| POST   | `/appointments/{appointmentId}/medical-reports`                   | Cria um prontuário médico                       | Médico           |
+| GET    | `/appointments/{appointmentId}/medical-reports`                   | Obtém todos os prontuários médicos              | Médico           |
+| GET    | `/appointments/{appointmentId}/medical-reports/{medicalReportId}` | Obtém um prontuário médico por ID               | Médico           |
