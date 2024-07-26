@@ -88,13 +88,9 @@ Ele também permitirá as seguintes ações:
 
 ### [Appointment Creator Service](https://github.com/jfelipearaujo-healthmed/appointment-creator-service)
 
-- [ ] TODO: Desenhar os fluxos
-
 Este serviço é responsável por lidar com a criação de consultas e evitar conflitos entre o possível grande número de usuários tentando criar consultas ao mesmo tempo para o mesmo médico. Para executar esta tarefa, usamos um Tópico FIFO e uma Fila FIFO para centralizar a criação de consultas e permitir a ordem correta das consultas, esses tópicos e filas conseguem entregar para a aplicação na ordem de chegada.
 
 ### [Review Processor Service](https://github.com/jfelipearaujo-healthmed/review-processor-service)
-
-- [ ] TODO: Desenhar os fluxos
 
 Este serviço é responsável pelo processamento de cada feedback feito por cada paciente e pelo cálculo da classificação de cada médico. Para permitir uma melhor maneira de calcular a classificação, usamos o Tópico e uma Fila para centralizar os feedbacks e segregar o poder de processamento necessário para calcular a classificação longe do serviço de agendamento.
 
