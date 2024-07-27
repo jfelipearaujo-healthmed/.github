@@ -19,6 +19,12 @@ O diagrama a seguir mostra a arquitetura do projeto. Ele foi criado com os segui
 
 ![architecture](../docs/architecture.png)
 
+## Observabilidade
+
+Para monitorar o sistema, usamos o Prometheus e Grafana. O Prometheus coleta os dados do sistema e o Grafana permite visualizar os dados coletados. Desta forma, é possível acompanhar o desempenho do sistema e identificar possíveis problemas. Caso haja algum problema, podemos corrigi-lo imediatamente e/ou criar alertas para avisar os times responsáveis através do AlertManager e de outro serviço de comunicação, como Slack ou Teams por exemplo.
+
+![observability](../docs/observability.png)
+
 ## Tecnologias
 
 Para criar este projeto, usamos as principais tecnologias:
