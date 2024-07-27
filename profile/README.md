@@ -102,4 +102,4 @@ Este serviço é responsável pelo processamento de cada feedback feito por cada
 
 ## Rotas
 
-Se você quiser entender melhor as rotas, consulte [esta](../docs/routes.md) página.
+Se você quiser entender melhor as rotas, consulte [esta](../docs/routes.md) página ou caso queira testar as rotas via Postman em sua máquina, faça o download do arquivo [postman.json](../docs/Health&Med.postman_collection.json) e importe-o no Postman.
